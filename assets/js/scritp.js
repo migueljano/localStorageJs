@@ -51,3 +51,22 @@ btnClear.addEventListener("click", function (e) {
     const labelText = document.getElementById('labelForm');
     labelText.textContent = "Nomi:";
 });
+/*esercizio 2 */
+
+const timer = document.getElementById('timer');
+ let i = parseInt (localStorage.getItem('timerValue')) || 0;
+
+ timer.textContent = i;
+ setInterval (() => {
+    i++;
+    timer.textContent = i;
+
+    localStorage.setItem("timerValue", i);
+
+ }, 1000);
+
+ const resetTimer = document.getElementById("ResetTimer");
+ resetTimer.addEventListener('click', function() {
+    i= 0;
+    localStorage.setItem('timerValue, 0');
+ });
