@@ -1,3 +1,4 @@
+/* essercizio 1*/
 const form = document.querySelector('form');
 const btnSubmit = document.getElementById('submit');
 const btnClear = document.getElementById('clear');
@@ -9,10 +10,8 @@ window.onload = function () {
     if (nomiSalvati) {
         console.log(nomiSalvati);
         nomi = JSON.parse(nomiSalvati);  // Parse dei dati salvati
-
         const labelText = document.getElementById('labelForm');
         labelText.textContent = nomi[nomi.length - 1] || "Nomi:";  // Mostra l'ultimo nome
-
         const ul = document.getElementById('textLista');
         nomi.forEach(element => {
             const li = document.createElement('li');
@@ -23,35 +22,25 @@ window.onload = function () {
         console.log('Nessun nome salvato nel localStorage.');
     }
 }
-
 btnSubmit.addEventListener("click", function (e) {
     e.preventDefault();
-
     const inputText = document.getElementById('inputText');
     // Controlla se il campo è vuoto
     if (inputText.value.trim() !== '') {
         nomi.push(inputText.value.trim());
-
-
         localStorage.setItem('tuttiText', JSON.stringify(nomi));
-
-
         const labelText = document.getElementById('labelForm');
         labelText.textContent = nomi[nomi.length - 1];
-
-
         const ul = document.getElementById('textLista');
         const li = document.createElement('li');
         li.textContent = inputText.value.trim();
         ul.appendChild(li);
-
         // Reset del modulo
         form.reset();
     } else {
         alert("Inserisci un nome!");
     }
 });
-
 
 btnClear.addEventListener("click", function (e) {
     e.preventDefault();
