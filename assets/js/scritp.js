@@ -62,10 +62,11 @@ const timer = document.getElementById('timer');
     timer.textContent = i;
 
     localStorage.setItem("timerValue", i);
+   
 
- }, 1000);
+ },  1000 ); 
 
- const resetTimer = document.getElementById("ResetTimer");
+ const resetTimer = document.getElementById("resetTimer");
  resetTimer.addEventListener('click', function() {
     i= 0;
     localStorage.setItem('timerValue, 0');
